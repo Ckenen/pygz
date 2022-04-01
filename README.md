@@ -23,7 +23,7 @@ For testing:
 
     ./test_pigz.py
 
-the output tis as follow:
+the output is as follows:
 
     ============================================================
     Read by gzip package:
