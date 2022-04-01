@@ -26,8 +26,8 @@ def write_by_pigz(path, lines):
             fw.write(line)
         
 def main():
-    PATH1 = "GRCh39.p13.chr1.1000000.fa.gz"
-    PATH2 = "out.test.gz"
+    PATH1 = "data/GRCh39.p13.chr1.1000000.fa.gz"
+    PATH2 = "data/out.test.gz"
     N = 5
 
     print("=" * 60)
