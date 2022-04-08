@@ -1,8 +1,10 @@
 # Pigz wrapper
 
-This repository is a wrapper for python to utilize pigz to compress or decompress data in parallel.
+This repository is a wrapper for python to utilize gzip or pigz to compress or decompress data in parallel.
 
-At first, you should add the path of this repository to your PYTHONPATH, or copy the pigz.py to your site-packages directory.
+For installation:
+
+    python setup.py install
 
 For reading:
 
@@ -21,39 +23,57 @@ For writing:
 
 For testing:
 
-    ./test_pigz.py
+    python setup.py test
 
 the output is as follows:
 
     ============================================================
-    Read by gzip package:
-    Number: 1, Time: 889.35 ms
-    Number: 2, Time: 931.01 ms
-    Number: 3, Time: 967.92 ms
-    Number: 4, Time: 920.07 ms
-    Number: 5, Time: 958.66 ms
-    Average time: 933.40 ms
+    Read by gzip subprocess:
+    Number: 1, Time: 585.19 ms
+    Number: 2, Time: 726.82 ms
+    Number: 3, Time: 698.48 ms
+    Number: 4, Time: 728.64 ms
+    Number: 5, Time: 698.70 ms
+    Average time: 687.57 ms
     ============================================================
-    Read by pigz subprocess:
-    Number: 1, Time: 483.14 ms
-    Number: 2, Time: 414.45 ms
-    Number: 3, Time: 413.28 ms
-    Number: 4, Time: 460.89 ms
-    Number: 5, Time: 468.44 ms
-    Average time: 448.04 ms
+    Write by gzip subprocess:
+    Number: 1, Time: 13652.26 ms
+    Number: 2, Time: 13413.61 ms
+    Number: 3, Time: 13303.46 ms
+    Number: 4, Time: 13369.65 ms
+    Number: 5, Time: 13340.88 ms
+    Average time: 13415.97 ms
+    ============================================================
+    Read by pigz subprocess (4 threads):
+    Number: 1, Time: 339.37 ms
+    Number: 2, Time: 403.47 ms
+    Number: 3, Time: 401.11 ms
+    Number: 4, Time: 408.30 ms
+    Number: 5, Time: 425.89 ms
+    Average time: 395.63 ms
+    ============================================================
+    Write by pigz subprocess (4 threads):
+    Number: 1, Time: 3562.05 ms
+    Number: 2, Time: 3511.68 ms
+    Number: 3, Time: 3519.51 ms
+    Number: 4, Time: 3518.98 ms
+    Number: 5, Time: 3513.09 ms
+    Average time: 3525.06 ms
+    ============================================================
+    Read by gzip package:
+    Number: 1, Time: 867.79 ms
+    Number: 2, Time: 915.57 ms
+    Number: 3, Time: 893.22 ms
+    Number: 4, Time: 885.66 ms
+    Number: 5, Time: 889.74 ms
+    Average time: 890.40 ms
     ============================================================
     Write by gzip package:
-    Number: 1, Time: 66915.84 ms
-    Number: 2, Time: 67248.85 ms
-    Number: 3, Time: 65625.26 ms
-    Number: 4, Time: 65328.97 ms
-    Number: 5, Time: 65264.58 ms
-    Average time: 66076.70 ms
-    ============================================================
-    Write by pigz subprocess:
-    Number: 1, Time: 3522.61 ms
-    Number: 2, Time: 3740.81 ms
-    Number: 3, Time: 3542.37 ms
-    Number: 4, Time: 3541.36 ms
-    Number: 5, Time: 4064.07 ms
-    Average time: 3682.24 ms
+    Number: 1, Time: 66520.40 ms
+    Number: 2, Time: 66305.25 ms
+    Number: 3, Time: 65591.92 ms
+    Number: 4, Time: 65327.56 ms
+    Number: 5, Time: 65716.15 ms
+    Average time: 65892.26 ms
+
+The pigz subprocess show significantly high effectiveness in compressing and decompressing data.
