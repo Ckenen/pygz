@@ -6,24 +6,34 @@ For installation:
 
     python setup.py install
 
-For reading:
+For testing:
 
-    from pigz import PigzFile
-    with PigzFile("input.gz") as f:
-        for line in f:
-            print(line)
+    python setup.py test
+    
+Examples:
 
-For writing:
+    from pigz import PigzFile, GzipFile
 
-    from pigz import PigzFile
+    # gzip subprocess
+
     threads = 4 # default
+
+    with PigzFile("input.gz", "rt", threads) as f:
+        lines = [line for line in f]
+
     with PigzFile("output.gz", "wt", threads) as fw:
         for line in lines:
             fw.write(line)
 
-For testing:
+    # gzip subprocess
 
-    python setup.py test
+    with GzipFile("input.gz") as f:
+        lines = [line for line in f]
+        
+    with GzipFile("output.gz", "wt") as fw:
+        for line in lines:
+            fw.write(line)
+
 
 the output is as follows:
 
