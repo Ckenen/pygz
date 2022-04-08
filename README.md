@@ -5,6 +5,8 @@ This repository is a wrapper for python to utilize gzip or pigz to compress or d
 For installation:
 
     python setup.py install
+    # or
+    pip install pygz
 
 For testing:
 
@@ -12,9 +14,9 @@ For testing:
     
 Examples:
 
-    from pigz import PigzFile, GzipFile
+    from pygz import PigzFile, GzipFile
 
-    # gzip subprocess
+    # pigz subprocess
 
     threads = 4 # default
 
